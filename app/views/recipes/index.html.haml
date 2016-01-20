@@ -1,1 +1,9 @@
-%h1 This is a placeholder
+%h3 All Recipes
+- @recipes.each do |recipe|
+	%h4
+		= link_to recipe.title, recipe
+	%p
+		= recipe.description
+
+
+= link_to 'Add New Recipe', new_recipe_path, class: "btn btn-default"
