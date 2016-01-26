@@ -1,7 +1,12 @@
 %h3 All Recipes
-- @recipes.each do |recipe|
-	= image_tag (recipe.image_url)  unless recipe.image.nil?
-	%h4
-		= link_to recipe.title, recipe
-	%p
-		= recipe.description
+- @recipes.each_slice(3) do |recipes|
+	.row
+	-recipes.each do |recipe|
+		.col-md-4
+			.recipe
+				.image_wrapper 
+					= image_tag (recipe.image_url)  unless recipe.image.nil?
+				%h2
+					= link_to recipe.title, recipe
+				%p
+					= recipe.description
